@@ -121,7 +121,6 @@ wandb/
 trained_model/
 .circleci/
 .dev_scripts/
-.github/
 data/
 pths/
 ._pths
