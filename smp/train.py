@@ -5,6 +5,7 @@ import random
 import datetime
 from functools import partial
 import shutil
+import pytz
 
 # external library
 import cv2
@@ -55,7 +56,7 @@ SAVE_EVERY = 25
 # VAL_EVERY는 SAVE_EVERY의 약수로 설정 가능
 args = {"Batch size": BATCH_SIZE, "Epochs": NUM_EPOCHS, "Seed": RANDOM_SEED, "learning rate": LR, "Model": "timm-efficientnet-b4", "val every": VAL_EVERY, "save every": SAVE_EVERY}
 SAVED_DIR = "./results/DeepLabV3Plus01/"
-
+kst = pytz.timezone('Asia/Seoul')
 
 if not os.path.isdir(SAVED_DIR):                                                           
     os.mkdir(SAVED_DIR)
@@ -290,7 +291,7 @@ def train(model, data_loader, val_loader, criterion, optimizer):
             # step 주기에 따른 loss 출력
             if (step + 1) % 25 == 0:
                 print(
-                    f'{datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")} | '
+                    f'{datetime.datetime.now(kst).strftime("%Y-%m-%d %H:%M:%S")} | '
                     f'Epoch [{epoch+1}/{NUM_EPOCHS}], '
                     f'Step [{step+1}/{len(train_loader)}], '
                     f'Loss: {round(loss.item(),4)}'
