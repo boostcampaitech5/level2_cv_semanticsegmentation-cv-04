@@ -106,3 +106,8 @@ def ensemble(CSV_FOLDER_PATH):
 
     submission["rle"] = rles
     submission.to_csv("./hard_voted_output.csv", index=False)
+
+
+if __name__ == "__main__":
+    CSV_FOLDER_PATH = "/opt/ml/ensemble/csv_files"
+    ensemble(CSV_FOLDER_PATH)
