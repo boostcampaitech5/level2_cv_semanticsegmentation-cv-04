@@ -1,0 +1,23 @@
+# 학습 이름(checkpoint, wandb 업로드명)
+exp_name: 'DeepLabV3Plus_15'
+WORKER: worker_name
+# Seed
+seed: 21
+# Dice Threshold
+threshold: 0.5
+# Epoch 설정
+epoch: 300
+# 모델 컴파일(Pytorch 2.0부터 가능)
+compile: False
+
+batch_size: 16           # default : 16
+num_workers: 6          # default : 8
+make_pickle: False
+
+k-fold: False
+fold: 5
+
+defaults:
+    - model : dlv3p-res50-adam-coswarm
+    - augmentation: dlv3p_15
+loss : Calc
