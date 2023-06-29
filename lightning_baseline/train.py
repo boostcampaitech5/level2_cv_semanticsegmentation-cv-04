@@ -11,7 +11,6 @@ from lightning import Trainer
 from lightning.pytorch.callbacks import StochasticWeightAveraging, EarlyStopping, LearningRateMonitor, ModelCheckpoint, RichProgressBar
 from lightning.pytorch.loggers import WandbLogger
 from models.base_module import Module
-from models.components.fcn import FCN
 from omegaconf import DictConfig
 
 import wandb
