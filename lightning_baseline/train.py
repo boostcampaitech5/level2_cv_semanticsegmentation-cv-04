@@ -23,7 +23,8 @@ def main(cfg: DictConfig):
     os.makedirs(f"./checkpoints/{cfg['exp_name']}", exist_ok=True)
 
     transforms = A.Compose([instantiate(aug) for _, aug in cfg["augmentation"].items()])
-    datamodule = DataModule(num_workers=4, transforms=transforms)
+    val_transforms = A.Compose([instantiate(aug) for _, aug in cfg["val_augmentation"].items()])
+    datamodule = DataModule(num_workers=4, transforms=transforms, val_transforms=val_transforms)
 
     model = instantiate(cfg["model"]["model"])
     criterion = loss.Calc_loss()

@@ -168,13 +168,14 @@ class XRayDataset(Dataset):
 
 class DataModule(L.LightningDataModule):
     def __init__(
-        self, batch_size: int = 4, train: bool = True, num_workers: int = 6, transforms=A.Resize(512, 512)
+        self, batch_size: int = 4, train: bool = True, num_workers: int = 6, transforms=A.Resize(512, 512), val_transforms=A.Resize(512, 512)
     ) -> None:
         super().__init__()
         self.batch_size = batch_size
         self.train = train
         self.num_workers = num_workers
         self.transforms = transforms
+        self.val_transforms = val_transforms
 
     def train_dataloader(self):
         return DataLoader(
@@ -187,7 +188,7 @@ class DataModule(L.LightningDataModule):
 
     def val_dataloader(self):
         return DataLoader(
-            XRayDataset(is_train=False, transforms=self.transforms),
+            XRayDataset(is_train=False, transforms=self.val_transforms),
             batch_size=self.batch_size,
             shuffle=False,
             pin_memory=True,

@@ -20,4 +20,5 @@ fold: 5
 defaults:
     - model : dlv3p-res50-adam-coswarm
     - augmentation: dlv3p_15
+    - val_augmentation: base
 loss : Calc
