@@ -41,7 +41,8 @@ segmentation annotation은 json file로 제공됩니다.
 | 서지희 | FCN, UNet, UNet++ | EDA, 모델 리서치, pytorch-lightning 실험 환경 세팅, Augmentation 리서치 및 실험, 시각화 구현, 모델 앙상블 구현 |
 | 한나영 | UNet++, FCN | EDA, Jira 세팅, 모델 리서치, mmsegmengtation, smp 및 pytorch-lightning 실험 환경 세팅, SWA ,모델 앙상블 구현 |
 
-![timeline 지금 doc에서 바로 저장이 안되더라구요.. 되면 바로 수정하겠습니다]()
+![image](https://github.com/boostcampaitech5/level2_cv_semanticsegmentation-cv-04/assets/76798969/ec2ffb58-48fd-4e16-9750-c38799d16c37)
+
 
 ## **❓** Dataset & EDA
 
