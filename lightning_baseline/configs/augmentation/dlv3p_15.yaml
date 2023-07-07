@@ -1,0 +1,21 @@
+resize:
+    _target_: albumentations.Resize
+    height: 1024
+    width: 1024
+
+horizontalflip:
+    _target_: albumentations.HorizontalFlip
+
+contrast:
+    _target_: albumentations.RandomContrast
+    limit : 0.2
+    p : 0.5
+
+rotate:
+    _target_: albumentations.SafeRotate
+    limit : 70
+    p : 0.5
+
+elastictransform:
+    _target_: albumentations.ElasticTransform
+    p : 0.5

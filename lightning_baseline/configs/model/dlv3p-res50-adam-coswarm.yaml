@@ -1,0 +1,15 @@
+model: 
+    _target_: segmentation_models_pytorch.DeepLabV3
+    encoder_name: resnet50
+    classes: 29
+
+optimizer:
+    _target_: torch.optim.Adam
+    lr: 0.001
+    weight_decay: 0.000001
+
+scheduler:
+    _target_: torch.optim.lr_scheduler.CosineAnnealingWarmRestarts
+    T_0: 5
+    T_mult: 2
+    eta_min: 0.000001

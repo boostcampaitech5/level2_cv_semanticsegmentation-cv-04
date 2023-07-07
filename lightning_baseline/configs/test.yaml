@@ -1,0 +1,16 @@
+# 학습 이름(checkpoint, wandb 업로드명)
+exp_name: 'EXP_NAME'
+# Seed
+seed: 21
+# Dice Threshold
+threshold: 0.5
+# 모델 컴파일(Pytorch 2.0부터 가능)
+compile: False
+
+batch_size: 4
+num_workers: 4
+make_pickle: False
+
+defaults:
+    - model: dlv3p-res50-adam-coswarm.yaml
+    - augmentation: base
