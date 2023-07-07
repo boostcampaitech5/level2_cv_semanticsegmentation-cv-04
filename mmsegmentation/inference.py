@@ -33,7 +33,7 @@ IND2CLASS = {v: k for k, v in CLASS2IND.items()}
 cfg = Config.fromfile(config_path)
 model = init_model(config_path, checkpoint_path, device='cuda:0')
 
-def _preprare_data(imgs, model):
+def _prepare_data(imgs, model):
     for t in cfg.test_pipeline:
         if t.get('type') in ['LoadXRayAnnotations', 'TransposeAnnotations']:
             cfg.test_pipeline.remove(t)
@@ -94,7 +94,7 @@ def test(model):
             image_path = os.path.join(IMAGE_ROOT, image_names)
             image = cv2.imread(image_path)
 
-            data = _preprare_data(image, model)
+            data = _prepare_data(image, model)
             results = model.test_step(data)
             outputs = results[0].pred_sem_seg.data
             
